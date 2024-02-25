@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => {
   return {
-    target: ["web", "es5"],
+    // target: ["web", "es5"],
     mode: env.mode ?? "development",
     entry: path.resolve(__dirname, "src", "js", "script.js"),
     output: {
@@ -62,5 +62,11 @@ module.exports = (env) => {
         },
       ],
     },
+    devServer: {
+      port: 7777,
+      static: {
+        directory: path.join(__dirname, "build")
+      }
+    }
   };
 };
